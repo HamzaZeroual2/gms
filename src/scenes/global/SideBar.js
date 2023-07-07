@@ -105,7 +105,7 @@ function SideBar() {
               />
             </Box>
             <Box textAlign={"center"}>
-              <Typography variant="h2" color={colors.grey[100]} fontWeight={"bold"} sx={{m:"10px 0 0 0"}}>HZ User</Typography>
+              <Typography  variant="h2" color={colors.grey[100]} fontWeight={"bold"} sx={{m:"10px 0 0 0"}}>HZ User</Typography>
               <Typography variant="h5" color={colors.greenAccent[500]} >Admin Panel</Typography>
             </Box>
           </Box>
@@ -113,7 +113,7 @@ function SideBar() {
 
 
         {/* Menu Items*/}
-          <Box paddingLeft={isCollapsed  ? undefined : "10%"}>
+          <Box paddingLeft={isCollapsed  ? undefined : "6%"}>
             <Item 
               title="Dashbord"
               to="/"
@@ -126,9 +126,10 @@ function SideBar() {
                 variant="h6"
                 color={colors.grey[300]}
                 sx={{m:"15px 0 5px 20px"}}
-              >Manage Members</Typography>
+                style={{ overflowWrap: 'break-word' }}
+              >SAV</Typography>
                <Item 
-              title="Members"
+              title="List des Réparation"
               to="/members"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
@@ -139,9 +140,31 @@ function SideBar() {
                 variant="h6"
                 color={colors.grey[300]}
                 sx={{m:"15px 0 5px 20px"}}
-              >Manage Subscribtions</Typography>
+                style={{ overflowWrap: 'break-word' }}
+              >Clients</Typography>
               <Item 
-              title="Subscribtions"
+              title="List des Clients"
+              to="/members"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{m:"15px 0 5px 20px"}}
+                style={{ overflowWrap: 'break-word' }}
+              >Article</Typography>
+              <Item 
+              title="Article"
+              to="/members"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Pièces de Rechange"
               to="/members"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
