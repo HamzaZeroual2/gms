@@ -5,6 +5,7 @@ import TopBar from './scenes/global/TopBar';
 import SideBar from './scenes/global/SideBar';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './scenes/dashboard/index'
+import Clients from './scenes/Clients';
 // import Membres from './scenes/membres/index';
 // import CreateMembre from './scenes/members/CreateMembre';
 // import Subscriptions from './scenes/Subscription'
@@ -23,6 +24,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Dashboard/>}/>
+                <Route path="/clients" element={<Clients/>}/>
             </Routes>
           </main>
         </div>

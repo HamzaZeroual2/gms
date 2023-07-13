@@ -48,6 +48,9 @@ function SideBar() {
   return (
     <Box
       sx={{
+        "& .pro-sidebar":{
+                minWidth:"100% !important"
+        },
         "& .pro-sidebar-inner": { 
           background: `${colors.praimary[400]} !important`
         },
@@ -144,7 +147,7 @@ function SideBar() {
               >Clients</Typography>
               <Item 
               title="List des Clients"
-              to="/members"
+              to="/clients"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
