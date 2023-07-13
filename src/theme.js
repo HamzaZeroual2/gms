@@ -190,7 +190,7 @@ export const themeSettings = (mode) =>{
             },
             h6: {
                 fontFamily: ["Mulish","sans-serif"].join(","),
-                fontSize:14,
+                fontSize:12,
             },
         },
     };

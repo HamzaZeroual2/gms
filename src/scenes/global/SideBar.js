@@ -128,7 +128,7 @@ function SideBar() {
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
-                sx={{m:"15px 0 5px 20px"}}
+                sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >SAV</Typography>
                <Item 
@@ -142,7 +142,7 @@ function SideBar() {
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
-                sx={{m:"15px 0 5px 20px"}}
+                sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >Clients</Typography>
               <Item 
@@ -156,7 +156,7 @@ function SideBar() {
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
-                sx={{m:"15px 0 5px 20px"}}
+                sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >Article</Typography>
               <Item 
