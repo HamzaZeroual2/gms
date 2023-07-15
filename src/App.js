@@ -6,6 +6,7 @@ import SideBar from './scenes/global/SideBar';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './scenes/dashboard/index'
 import Clients from './scenes/Clients';
+import Login from './scenes/global/Login';
 // import Membres from './scenes/membres/index';
 // import CreateMembre from './scenes/members/CreateMembre';
 // import Subscriptions from './scenes/Subscription'
@@ -17,7 +18,8 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <div className="app">
+        <Login/>
+        {/* <div className="app">
           <SideBar/>
           <main className='content'>
             <TopBar/>
@@ -27,7 +29,7 @@ function App() {
                 <Route path="/clients" element={<Clients/>}/>
             </Routes>
           </main>
-        </div>
+        </div> */}
       </ThemeProvider>
     </ColorModeContext.Provider>
     

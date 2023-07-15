@@ -18,8 +18,6 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 
-
-
 const Item= ({title, to, icon, selected, setSeleted})=>{
   const theme= useTheme();
   const colors= tokens(theme.palette.mode);
@@ -35,8 +33,6 @@ const Item= ({title, to, icon, selected, setSeleted})=>{
       <Link to={to} />
     </MenuItem>
   )
-
-
 }
 
 function SideBar() {
@@ -91,7 +87,6 @@ function SideBar() {
               <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                 <MenuOutlinedIcon/>
               </IconButton>
-              
             </Box>
           )}
         </MenuItem>
@@ -114,7 +109,6 @@ function SideBar() {
           </Box>
         )}
 
-
         {/* Menu Items*/}
           <Box paddingLeft={isCollapsed  ? undefined : "6%"}>
             <Item 
@@ -123,7 +117,6 @@ function SideBar() {
               icon={<HomeOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
-
               />
               <Typography
                 variant="h6"
@@ -138,7 +131,6 @@ function SideBar() {
               selected={selected}
               setSeleted={setSelected}
               />
-
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
@@ -152,7 +144,6 @@ function SideBar() {
               selected={selected}
               setSeleted={setSelected}
               />
-
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
@@ -173,8 +164,6 @@ function SideBar() {
               selected={selected}
               setSeleted={setSelected}
               />
-
-
           </Box>
         </Menu>
       </ProSidebar>
