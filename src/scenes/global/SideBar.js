@@ -126,7 +126,7 @@ function SideBar() {
               >SAV</Typography>
                <Item 
               title="List des Réparation"
-              to="/members"
+              to="/ajouterutilisateur"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
