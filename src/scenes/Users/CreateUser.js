@@ -229,9 +229,11 @@ function CreateUser() {
                     }
                   />
                   </FormControl>
-                 
-                 
-                  
+              </Box>
+              <Box display="flex" justifyContent="end" mt="20px">
+                    <Button type='submit' color='secondary' variant='contained'>
+                      Ajouter Utilisateur
+                    </Button>
               </Box>
             </form>  
 
