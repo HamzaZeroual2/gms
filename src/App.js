@@ -8,6 +8,7 @@ import Dashboard from './scenes/dashboard/index'
 import Clients from './scenes/Clients';
 import Login from './scenes/global/Login';
 import CreateUser from './scenes/Users/CreateUser'
+import UsersList from './scenes/Users/UsersList';
 // import Membres from './scenes/membres/index';
 // import CreateMembre from './scenes/members/CreateMembre';
 // import Subscriptions from './scenes/Subscription'
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/" element={<Dashboard/>}/>
                 <Route path="/clients" element={<Clients/>}/>
                 <Route path="/Ajouterutilisateur" element={<CreateUser/>}/>
+                <Route path="/utilisateurs" element={<UsersList/>}/>
             </Routes>
           </main>
         </div>

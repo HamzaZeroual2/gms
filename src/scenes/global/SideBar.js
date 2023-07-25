@@ -164,6 +164,27 @@ function SideBar() {
               selected={selected}
               setSeleted={setSelected}
               />
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{m:"5px 0 5px 20px"}}
+                style={{ overflowWrap: 'break-word' }}
+              >Utilisateurs</Typography>
+              <Item
+              title="Les Utilisateurs"
+              to="/utilisateurs"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Ajouter Utilisateur"
+              to="/ajouterutilisateur"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              
           </Box>
         </Menu>
       </ProSidebar>
