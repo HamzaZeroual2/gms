@@ -8,7 +8,7 @@ import { LockOpenOutlinedIcon } from '@mui/icons-material/LockOpenOutlined';
 import { SecurityOutlinedIcon } from '@mui/icons-material/SecurityOutlined';
 import Header from "../../components/Header";
 import { useState,useEffect } from 'react';
-
+import ClientsService from '../../Services/ClientsService'
 function Clients() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -28,12 +28,13 @@ function Clients() {
 
     // Function to collect data
 const getApiData = async () => {
-    const response = await fetch(
-      "https://localhost:7059/api/clients"
-    ).then((response) => response.json());
-  
-    // update the state
-    setClients(response);
+    await ClientsService.GetAllClients()
+    .then((response => {
+      setClients(response.data)
+      console.log(response.data)
+    })).catch((error)=>{
+      console.log(error)
+    })
   };
 
   return (
