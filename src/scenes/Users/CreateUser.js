@@ -68,18 +68,6 @@ function CreateUser() {
       event.preventDefault();
   };
 
-    const validateConfirmPassword = (pass, value) => {
-
-      let error = "";
-      if (pass && value) {
-        if (pass !== value) {
-          error = "Password not matched";
-        }
-      }
-      return error;
-    };
-    ////
-
 
 
   return (
