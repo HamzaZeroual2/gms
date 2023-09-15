@@ -1,6 +1,6 @@
 import {createContext, useState, useMemo} from "react";
 import { createTheme } from "@mui/material/styles";
-import { typographyClasses } from "@mui/material";
+// import { typographyClasses } from "@mui/material";
 
 
 
@@ -23,16 +23,16 @@ export const tokens = (mode)=>({
                     900: "#141414"
             },
             praimary: {
-                    100: "#d0d1d5",
-                    200: "#a1a4ab",
-                    300: "#727681",
-                    400: "#1F2A40",
-                    500: "#141b2d",
-                    600: "#101624",
-                    700: "#0c101b",
-                    800: "#080b12",
-                    900: "#040509"
-            },
+                100: "#f0f1f5",
+                200: "#c2c5cc",
+                300: "#94989e",
+                400: "#374854",
+                500: "#293340",
+                600: "#252c37",
+                700: "#20262e",
+                800: "#1b2125",
+                900: "#15181b",
+              },
             greenAccent: {
                     100: "#dbf5ee",
                     200: "#b7ebde",
