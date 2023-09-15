@@ -123,15 +123,29 @@ function SideBar() {
                 color={colors.grey[300]}
                 sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
-              >SAV</Typography>
-               <Item 
-              title="List des Réparation"
-              to="/ajouterutilisateur"
+              >Gestion des Tickets</Typography>
+              <Item 
+              title="Les Tickets"
+              to="/tickets"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
-              <Typography
+              <Item 
+              title="Créer Ticket"
+              to="/createtickets"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              {/* <Item 
+              title="Réparation"
+              to="/reparation"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              /> */}
+              {/* <Typography
                 variant="h6"
                 color={colors.grey[300]}
                 sx={{m:"5px 0 5px 20px"}}
@@ -143,16 +157,17 @@ function SideBar() {
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
-              />
-              <Typography
+              /> */}
+              {/* <Typography
                 variant="h6"
                 color={colors.grey[300]}
                 sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
-              >Article</Typography>
+              >Gestion des Matériels</Typography>
+
               <Item 
-              title="Article"
-              to="/members"
+              title="Matériel"
+              to="/materiel"
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
@@ -163,7 +178,9 @@ function SideBar() {
               icon={<PeopleOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
-              />
+              /> */}
+              
+              {/* Gestion des Utilisateurs de Systéme Role [ADMIN] */}
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
@@ -184,7 +201,42 @@ function SideBar() {
               selected={selected}
               setSeleted={setSelected}
               />
-              
+
+              {/* LES Utilités de Systéme Role [ADMIN] */}
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{m:"5px 0 5px 20px"}}
+                style={{ overflowWrap: 'break-word' }}
+              >Utilités</Typography>
+              <Item 
+              title="Categories"
+              to="/categories"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Priorité"
+              to="/priorite"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Status"
+              to="/statuts"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Services"
+              to="/services"
+              icon={<PeopleOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
           </Box>
         </Menu>
       </ProSidebar>
