@@ -13,10 +13,16 @@ const updateTicket =()=>{
 
 }
 
-const deleteTicket = () => {
+const deleteTicket = (id) => {
 
 }
-const getTicketById = () => {
+const getTicketById = (id) => {
+
+}
+const getOpenTickets = () => {
+
+}
+const getOpenTicketById = (id) => {
 
 }
 const getAllTicket = () => {
@@ -25,13 +31,17 @@ const getAllTicket = () => {
 const getAllTicketsByUser = ()=>{
 
 }
+
 const TicketsService = {
   createTicket,
   updateTicket,
   deleteTicket,
   getTicketById,
   getAllTicket,
-  getAllTicketsByUser
+  getAllTicketsByUser,
+  getOpenTickets,
+  getAllTicket,
+  getOpenTicketById
   
 }
 

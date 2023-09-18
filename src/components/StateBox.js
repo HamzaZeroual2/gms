@@ -31,7 +31,7 @@ function StateBox({title, subtitle, icon, progress, increase}) {
       <Typography
         variant="h5"
         fontStyle="italic"
-        sx={{ color: colors.greenAccent[600] }}
+        sx={{ color: colors.grey[200] }}
       >
         {increase}
       </Typography>
