@@ -3,9 +3,10 @@ import { ColorModeContext, useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import TopBar from './scenes/global/TopBar';
 import SideBar from './scenes/global/SideBar';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation} from 'react-router-dom';
 
-import Dashboard from './scenes/dashboard/Dashboard'
+import Dashboard from './scenes/dashboard/Dashboard';
+import DashboardIntervenant from './scenes/dashboard/DashboardIntervenant';
 import Clients from './scenes/clients/index';
 import Login from './scenes/global/Login';
 import CreateUser from './scenes/Users/CreateUser'
@@ -14,7 +15,7 @@ import TicketsList from './scenes/tickets/TicketsList';
 import RepairsList from './scenes/reparation/RepairsList';
 import CreateTicket from './scenes/tickets/CreateTicket';
 import CreateRepair from './scenes/reparation/CreateRepair';
-
+import Interventions from './scenes/interventions/listeIntervention'
 
 import ProtectedRoute from './Routes/ProtectedRoute';
 import SidebarLayout from './Layouts/DashbordLayout'
@@ -33,7 +34,8 @@ import TicketTracking from './scenes/sav/TicketTracking';
 
 function App() {
   const [theme, colorMode] = useMode();
-  const {isAuthenticated} = useAuth();
+  const {isAuthenticated,role} = useAuth();
+  const location = useLocation();
   return (
     <>
     <ColorModeContext.Provider value={colorMode}>
@@ -41,24 +43,30 @@ function App() {
         <CssBaseline/>
         <Routes >
         <Route
-
             path="/login"
             element={!isAuthenticated ? <Login />: <Navigate to="/" replace={true} />}
           />
         <Route element={isAuthenticated ? <SidebarLayout />: <Navigate to="/login" replace={true} />}>
-
-          <Route path="/" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
-          <Route path="/reparations" element={<ProtectedRoute><RepairTickets/></ProtectedRoute>}/>
-          <Route path="/suivitickits" element={<ProtectedRoute><TicketTracking/></ProtectedRoute>}/>
-          <Route path="/ajouterticket" element={<ProtectedRoute><CreateRepairTicket/></ProtectedRoute>}/>
-          <Route path="/clients" element={<ProtectedRoute><Clients/></ProtectedRoute>}/>
+          {
+            role==='inertvenant' && <Route path="/intervenant" element={<ProtectedRoute><DashboardIntervenant/></ProtectedRoute>}/>
+          }
+          {(role === 'admin' || role === 'support') && (
+              <Route path="/" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+          )}
+          <Route path="/ajouterticket" element={<ProtectedRoute><CreateTicket/></ProtectedRoute>}/>
+          <Route path="/tickets" element={<ProtectedRoute><TicketsList/></ProtectedRoute>}/>
+          <Route path="/listeintervention" element={<ProtectedRoute><Interventions/> </ProtectedRoute>}/>
+          
           <Route path="/Ajouterutilisateur" element={<ProtectedRoute><CreateUser/></ProtectedRoute>}/>
           <Route path="/utilisateurs" element={<ProtectedRoute><UsersList/></ProtectedRoute>}/>
           <Route path="/articles" element={<ProtectedRoute><Articles/></ProtectedRoute>}/>
           <Route path="/ajouterarticle" element={<ProtectedRoute><CreateArticle/></ProtectedRoute>}/>
           <Route path="/piecesrechange" element={<ProtectedRoute><SpareParts/></ProtectedRoute>}/>
           <Route path="/ajouterpiecerechange" element={<ProtectedRoute><CreateSparePart/></ProtectedRoute>}/>
-          <Route path="/createtickets" element={<ProtectedRoute><CreateTicket/></ProtectedRoute>}/>
+          <Route path="/clients" element={<ProtectedRoute><Clients/></ProtectedRoute>}/>
+          <Route path="*" element={<Navigate to={location.state?.from ?? '/'} replace />}/>
+          {/* <Route path="/reparations" element={<ProtectedRoute><RepairTickets/></ProtectedRoute>}/>
+          <Route path="/suivitickits" element={<ProtectedRoute><TicketTracking/></ProtectedRoute>}/> */}
         </Route>           
               
        </Routes>

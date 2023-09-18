@@ -14,7 +14,7 @@ function UsersList() {
     const colors = tokens(theme.palette.mode);
     const [clients, setClients]=useState([]);
   const columns=[
-    {field : "id",headerName: "ID"},
+    {field : "id",headerName: "ID",width:130},
     {field : "nom", headerName : "Nom",  },
     {field : "prenom", headerName : "Prénom",},
     {field : "telephone", headerName: "Télephone",},

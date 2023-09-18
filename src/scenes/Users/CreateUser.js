@@ -19,6 +19,26 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 
+
+
+const roles = [
+  {
+    value:"",
+    label : "-"
+  },{
+    value: '1',
+    label: 'Agent Support',
+  },
+  {
+    value: '2',
+    label: 'Intervenant',
+  },
+  {
+    value: '3',
+    label: 'Administarateur',
+  },
+];
+
 const initialValues = {
   Prenom : "",
   Nom : "",
@@ -27,6 +47,7 @@ const initialValues = {
   Email : "",
   motdepasse : "",
   confirmerMotdepasse : "",
+  IdRole :"",
 };
 const phoneREGEX = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
@@ -36,6 +57,7 @@ const userScheme = yup.object().shape({
   Telephone : yup.string().matches(phoneREGEX, "Le numéro de téléphone n'est pas valide").required("required"),
   NomUtilisateur : yup.string().required("required"),
   Email : yup.string().email("Email invalide").required("required"),
+  IdRole : yup.string().required('required'),
   motdepasse : yup.string().required("required").max(50),
   confirmerMotdepasse : yup.string().required("required").max(50), 
 });
@@ -105,7 +127,7 @@ function CreateUser() {
                     name='Prenom' // Updated the name attribute to match the field name
                     error={!!touched.Prenom && !!errors.Prenom}
                     helperText={touched.Prenom && errors.Prenom}
-                    sx={{gridColumn: "span 2"}}
+                    sx={{gridColumn: "span 1"}}
                   />
                    <TextField 
                     fullWidth
@@ -118,8 +140,32 @@ function CreateUser() {
                     name='Nom' // Updated the name attribute to match the field name
                     error={!!touched.Nom && !!errors.Nom}
                     helperText={touched.Nom && errors.Nom}
-                    sx={{gridColumn: "span 2"}}
+                    sx={{gridColumn: "span 1"}}
                   />
+                  <TextField
+                    variant="filled"
+                    color='praimary'
+                    id="IdRole"
+                    select
+                    label="Role"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.IdRole} 
+                    
+                    error={!!touched.IdRole && !!errors.IdRole}
+                    helperText={touched.IdRole && errors.IdRole}
+                    SelectProps={{
+                      native: true,
+                    }}
+                    sx={{gridColumn: "span 2"}}
+                  >
+                    {roles.map((option) => (
+                      <option color="praimary" key={option.value} value={option.value} style={{backgroundColor:colors.praimary[400] ,color:colors.grey[100]}}>
+                        {option.label}
+                      </option>
+                    ))}
+
+                  </TextField>
                   <TextField 
                     fullWidth
                     variant='filled'

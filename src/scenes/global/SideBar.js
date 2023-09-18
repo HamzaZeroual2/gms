@@ -16,12 +16,22 @@ import PieChartOutlinedIcon from '@mui/icons-material/PieChartOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-
-
+import { useAuth } from '../../Providers/AuthProvider';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import WorkIcon from '@mui/icons-material/Work';
+import AddIcon from '@mui/icons-material/Add';
+import WarningIcon from '@mui/icons-material/Warning';
+import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
+import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import LabelImportantOutlinedIcon from '@mui/icons-material/LabelImportantOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 const Item= ({title, to, icon, selected, setSeleted})=>{
   const theme= useTheme();
   const colors= tokens(theme.palette.mode);
-
+  
   return(
     <MenuItem 
       active={selected===false}
@@ -40,7 +50,7 @@ function SideBar() {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState('Dashboard');
-
+  const {role} = useAuth();
   return (
     <Box
       sx={{
@@ -114,79 +124,139 @@ function SideBar() {
             <Item 
               title="Dashbord"
               to="/"
-              icon={<HomeOutlinedIcon/>}
+              icon={<LeaderboardIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
+              <Item 
+              title="Dashbord Intervenant"
+              to="/intervenant"
+              icon={<LeaderboardIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+               {
+                !isCollapsed && (
               <Typography
                 variant="h6"
-                color={colors.grey[300]}
+                color={colors.grey[200]}
                 sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >Gestion des Tickets</Typography>
+              
+              )}
               <Item 
               title="Les Tickets"
               to="/tickets"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<ConfirmationNumberIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
               <Item 
               title="Créer Ticket"
-              to="/createtickets"
-              icon={<PeopleOutlinedIcon/>}
+              to="/ajouterticket"
+              icon={<AddIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
-              {/* <Item 
-              title="Réparation"
-              to="/reparation"
-              icon={<PeopleOutlinedIcon/>}
-              selected={selected}
-              setSeleted={setSelected}
-              /> */}
-              {/* <Typography
-                variant="h6"
-                color={colors.grey[300]}
-                sx={{m:"5px 0 5px 20px"}}
-                style={{ overflowWrap: 'break-word' }}
-              >Clients</Typography>
-              <Item 
-              title="List des Clients"
-              to="/clients"
-              icon={<PeopleOutlinedIcon/>}
-              selected={selected}
-              setSeleted={setSelected}
-              /> */}
-              {/* <Typography
-                variant="h6"
-                color={colors.grey[300]}
-                sx={{m:"5px 0 5px 20px"}}
-                style={{ overflowWrap: 'break-word' }}
-              >Gestion des Matériels</Typography>
+              {
+                !isCollapsed && (<Typography
+                  variant="h6"
+                  color={colors.grey[200]}
+                  sx={{m:"5px 0 5px 20px"}}
+                  style={{ overflowWrap: 'break-word' }}
+                >Gestion des interventions</Typography>)
+              }
+              
 
               <Item 
-              title="Matériel"
-              to="/materiel"
-              icon={<PeopleOutlinedIcon/>}
+              title="List des interventions"
+              to="/listeintervention"
+              icon={<WorkIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
               <Item 
-              title="Pièces de Rechange"
-              to="/members"
-              icon={<PeopleOutlinedIcon/>}
+              title="Creer interventions"
+              to="/ajouterinterventions"
+              icon={<AddIcon/>}
               selected={selected}
               setSeleted={setSelected}
-              /> */}
-              
-              {/* Gestion des Utilisateurs de Systéme Role [ADMIN] */}
-              <Typography
+              />
+              <Item 
+              title="Mes intervention"
+              to="/mesinterventions"
+              icon={<WorkIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              {
+                !isCollapsed && (
+                  <Typography
+                  variant="h6"
+                  color={colors.grey[200]}
+                  sx={{m:"5px 0 5px 20px"}}
+                  style={{ overflowWrap: 'break-word' }}
+                >La base de connaissances</Typography>
+              )}
+              {
+                !isCollapsed && (
+                  <Typography
                 variant="h6"
                 color={colors.grey[300]}
+                sx={{m:"5px 0 5px 30px"}}
+                style={{ overflowWrap: 'break-word' }}
+              >Gestion des problémes</Typography>
+              )}
+              
+               <Item 
+              title="Liste des probléme"
+              to="/listeprobleme"
+              icon={<WarningIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item 
+              title="Ajouter un probléme"
+              to="/ajouterprobleme"
+              icon={<AddIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              {
+                !isCollapsed && (<Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{m:"5px 0 5px 30px"}}
+                style={{ overflowWrap: 'break-word' }}
+              >Gestion des solutions</Typography>
+              )}
+              
+               <Item
+              title="Liste des Solutions"
+              to="/listeprobleme"
+              icon={<TaskOutlinedIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+              <Item
+              title="Ajouter une solution"
+              to="/ajoutersolution"
+              icon={<AddIcon/>}
+              selected={selected}
+              setSeleted={setSelected}
+              />
+
+              {/* Gestion des Utilisateurs de Systéme Role [ADMIN] */}
+              {
+                !isCollapsed && (<Typography
+                variant="h6"
+                color={colors.grey[200]}
                 sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >Utilisateurs</Typography>
+              )}
+              
               <Item
               title="Les Utilisateurs"
               to="/utilisateurs"
@@ -197,46 +267,50 @@ function SideBar() {
               <Item 
               title="Ajouter Utilisateur"
               to="/ajouterutilisateur"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<GroupAddOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
 
               {/* LES Utilités de Systéme Role [ADMIN] */}
-              <Typography
+              {
+                role==='admin' && <>
+                <Typography
                 variant="h6"
-                color={colors.grey[300]}
+                color={colors.grey[200]}
                 sx={{m:"5px 0 5px 20px"}}
                 style={{ overflowWrap: 'break-word' }}
               >Utilités</Typography>
               <Item 
               title="Categories"
               to="/categories"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<CategoryOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
               <Item 
               title="Priorité"
               to="/priorite"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<LabelImportantOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
               <Item 
               title="Status"
               to="/statuts"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<AssignmentTurnedInOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
               />
               <Item 
               title="Services"
               to="/services"
-              icon={<PeopleOutlinedIcon/>}
+              icon={<BusinessOutlinedIcon/>}
               selected={selected}
               setSeleted={setSelected}
-              />
+              /></>
+              }
+              
           </Box>
         </Menu>
       </ProSidebar>
